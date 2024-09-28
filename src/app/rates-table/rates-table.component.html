@@ -1,0 +1,19 @@
+<table mat-table [dataSource]="(rates$ | async) || []" class="mat-elevation-z8">
+  <ng-container matColumnDef="symbol">
+    <th mat-header-cell *matHeaderCellDef class="symbol-column"> Symbol </th>
+    <td mat-cell *matCellDef="let rate" class="symbol-column">{{ rate.symbol }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="bid">
+    <th mat-header-cell *matHeaderCellDef class="bid-column"> Bid </th>
+    <td mat-cell *matCellDef="let rate" class="bid-column">{{ rate.bid }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="ask">
+    <th mat-header-cell *matHeaderCellDef class="ask-column"> Ask </th>
+    <td mat-cell *matCellDef="let rate" class="ask-column">{{ rate.ask }}</td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="['symbol', 'bid', 'ask']"></tr>
+  <tr mat-row *matRowDef="let row; columns: ['symbol', 'bid', 'ask'];"></tr>
+</table>
